@@ -19,7 +19,7 @@ import android.os.IBinder;
 public class GreenHouseApplication extends Application
 {
 	//TEST
-	
+	//TEST KIRIGIRIKYOKO
 	/**控制器**/
 	private ClientController mClientController;
 	@Override
