@@ -42,6 +42,7 @@ public class GreenHouseApplication extends Application
 	 */
 	public ClientController getClientController()
 	{
+		//
 		return mClientController;
 	}
 	
