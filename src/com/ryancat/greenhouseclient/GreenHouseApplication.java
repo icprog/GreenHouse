@@ -20,6 +20,7 @@ public class GreenHouseApplication extends Application
 {
 	//TEST
 	//TEST KIRIGIRIKYOKO
+	//再添加注释
 	/**控制器**/
 	private ClientController mClientController;
 	@Override
