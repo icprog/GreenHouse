@@ -18,7 +18,7 @@ import android.os.IBinder;
  */
 public class GreenHouseApplication extends Application
 {
-	
+	//TEST
 	
 	/**控制器**/
 	private ClientController mClientController;
