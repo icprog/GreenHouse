@@ -18,6 +18,8 @@ import android.os.IBinder;
  */
 public class GreenHouseApplication extends Application
 {
+	
+	
 	/**控制器**/
 	private ClientController mClientController;
 	@Override
