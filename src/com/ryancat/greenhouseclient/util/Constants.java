@@ -8,4 +8,6 @@ package com.ryancat.greenhouseclient.util;
 public interface Constants
 {
 	String ENCODING = "utf-8";
+	String HTTP_REQUEST = "Http_Request";
+	String Http_RESPONSE = "Http_Response";
 }
