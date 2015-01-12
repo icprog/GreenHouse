@@ -12,7 +12,6 @@ import com.ryancat.greenhouseclient.util.Constants;
  */
 public class RegisterDataBean  extends BaseDataBean
 {
-	
 	//返回参数，客户端ID
 	@HttpAnnotation(HttpType =Constants.Http_RESPONSE)
 	public int cid ;

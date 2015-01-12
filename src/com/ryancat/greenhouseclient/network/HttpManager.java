@@ -15,13 +15,14 @@ public class HttpManager
 	{
 		return sInstance;
 	}
-
-	public String httpGet(String url, Map<String, Object> param)
+	
+	private String httpGet(String url, Map<String, Object> param)
 	{
+		
 		return adapter.get(url, param);
 	}
 
-	public String httpPost(String url, Map<String, Object> param)
+	private String httpPost(String url, Map<String, Object> param)
 	{
 		return adapter.post(url, param);
 	}

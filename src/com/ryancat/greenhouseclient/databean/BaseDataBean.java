@@ -1,5 +1,6 @@
 package com.ryancat.greenhouseclient.databean;
 
+import com.ryancat.greenhouseclient.GreenHouseApplication;
 import com.ryancat.greenhouseclient.annotation.HttpAnnotation;
 import com.ryancat.greenhouseclient.util.Constants;
 
@@ -11,6 +12,15 @@ import com.ryancat.greenhouseclient.util.Constants;
  */
 public class BaseDataBean 
 {
+	public BaseDataBean()
+	{
+		this.imei = GreenHouseApplication.IMEI;
+		this.mac = GreenHouseApplication.Mac;
+		this.ua = GreenHouseApplication.Ua;
+		this.ver = GreenHouseApplication.Ver;
+		this.sysVer = GreenHouseApplication.SysVer;
+	}
+	
 	//设备的IMEI唯一标识符
 	@HttpAnnotation
 	public String imei ;

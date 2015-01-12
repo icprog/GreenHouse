@@ -18,6 +18,12 @@ import android.os.IBinder;
  */
 public class GreenHouseApplication extends Application
 {
+	public static String IMEI ;
+	public static String Mac;
+	public static String Ua;
+	public static String Ap;
+	public static String Ver;
+	public static String SysVer;
 	/**控制器**/
 	private ClientController mClientController;
 	@Override
@@ -33,6 +39,7 @@ public class GreenHouseApplication extends Application
 	private void init ()
 	{
 		mClientController = ClientController.getInstance(this);
+		initFiled();
 	}
 	/**
 	 * 拿到控制器
@@ -40,9 +47,15 @@ public class GreenHouseApplication extends Application
 	 */
 	public ClientController getClientController()
 	{
-		//
-		
 		return mClientController;
+	}
+	/**
+	 * 这里对Http的几个透传参数进行赋值
+	 * 因为是在程序一开始的地方进行初始化，只进行一次赋值操作
+	 */
+	private void initFiled()
+	{
+		
 	}
 	
 }
