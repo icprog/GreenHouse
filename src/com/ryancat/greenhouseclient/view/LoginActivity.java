@@ -3,6 +3,7 @@ package com.ryancat.greenhouseclient.view;
 import com.ryancat.greenhouseclient.R;
 import com.ryancat.greenhouseclient.R.layout;
 import com.ryancat.greenhouseclient.controller.TaskConstants;
+import com.ryancat.greenhouseclient.databean.GatewayListDataBean;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -99,6 +100,8 @@ public class LoginActivity extends BaseActivity
 					if(msg.arg1==TaskConstants.TASK_SUCCESS)
 					{
 						//获取网关列表成功
+						GatewayListDataBean gldb = (GatewayListDataBean)msg.obj ;
+						Toast.makeText(mApp, gldb.toString(), Toast.LENGTH_LONG).show();
 					}
 					else if(msg.arg1 ==TaskConstants.TASK_FAILED)
 					{

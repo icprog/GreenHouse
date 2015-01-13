@@ -11,7 +11,7 @@ import android.os.Handler;
 
 public class UserRegisterTask extends BaseTask
 {
-	private static final int TASK_TAG = TaskConstants.USER_LOGIN_TASK;
+	private static final int TASK_TAG = TaskConstants.USER_REGISTER_TASK;
 
 	public UserRegisterTask(Handler handler, Context _context)
 	{

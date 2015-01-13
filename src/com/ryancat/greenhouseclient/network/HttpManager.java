@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.ryancat.greenhouseclient.annotation.HttpAnnotation;
 import com.ryancat.greenhouseclient.databean.BaseDataBean;
 import com.ryancat.greenhouseclient.util.Constants;
+import com.ryancat.greenhouseclient.util.L;
 
 public class HttpManager
 {
@@ -59,12 +60,17 @@ public class HttpManager
 				response = httpGet(url, requestMap);
 
 			}
+			L.d("rsp -->"+response);
+
 			//这里不去new而是使用原有的dataBean减少开销
-			resultDataBean = requestDataBean;
+			resultDataBean = (BaseDataBean) clazz.newInstance();
 			//在这里封装为gson
 			Gson gson = new Gson();
 			resultDataBean = gson.fromJson(response, clazz);
 		}catch (IllegalAccessException e)
+		{
+			e.printStackTrace();
+		} catch (InstantiationException e)
 		{
 			e.printStackTrace();
 		}

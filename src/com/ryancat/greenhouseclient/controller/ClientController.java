@@ -3,6 +3,8 @@ package com.ryancat.greenhouseclient.controller;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.ryancat.greenhouseclient.databean.GatewayListDataBean;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +22,7 @@ public class ClientController
 
 	private static ClientController sInstance;// 单例
 	private ExecutorService mExecutorService;//线程池
-	private final static int THREAD_NUM = 5;//线程数
+	private final static int THREAD_NUM = 1;//线程数
 	private Context mContext;
 
 	private ClientController()
@@ -68,13 +70,17 @@ public class ClientController
 	{
 		mExecutorService.execute(new ShowGatewayListTask(taskHandler,mContext));
 	}
-
 	/**
 	 * 开启MQTT的API
 	 */
 	public void startMqttClient(Handler taskHandler)
 	{
 		mExecutorService.execute(new StartMqttTask(taskHandler,mContext));
+	}
+	public void isGatewayListEmpty(Object gatewayList)
+	{
+		GatewayListDataBean gwl_databean = (GatewayListDataBean)gatewayList;
+		
 	}
 	
 }

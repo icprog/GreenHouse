@@ -27,12 +27,10 @@ final class ShowGatewayListTask extends BaseTask
 	public void run()
 	{
 		// 第二步登录成功，开始获取网关列表
-		L.d("Login success!");
 		GatewayListDataBean gatewayListDataBean = new GatewayListDataBean();
 		gatewayListDataBean.cid = GreenHouseApplication.cid;
 		gatewayListDataBean.cToken = GreenHouseApplication.cToken;
 		gatewayListDataBean.page = "1";
-		L.d("网关bean:::"+gatewayListDataBean.toString());
 		gatewayListDataBean = (GatewayListDataBean) httpManager.requestServer(Constants.GwList_Url, gatewayListDataBean, true);
 		if(gatewayListDataBean.status.equals(Constants.Status_Success))
 		{

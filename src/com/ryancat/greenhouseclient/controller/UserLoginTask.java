@@ -37,6 +37,7 @@ final class UserLoginTask extends BaseTask
 			if (loginDataBean.status.equals(Constants.Status_Success))
 			{
 				L.d("login success!");
+				L.d("loginDataBean is " +loginDataBean.toString());
 				GreenHouseApplication.cToken = loginDataBean.cToken;
 				sendResultMessage(TASK_TAG, loginDataBean, TaskConstants.TASK_SUCCESS, 0);
 			} else
