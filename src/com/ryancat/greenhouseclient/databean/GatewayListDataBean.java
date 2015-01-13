@@ -7,13 +7,13 @@ public class GatewayListDataBean extends BaseDataBean
 {
 	//客户端唯一ID标识
 	@HttpAnnotation
-	public int cid ;
+	public String cid ;
 	//客户端合法token
 	@HttpAnnotation
 	public String cToken;
 	//页码
 	@HttpAnnotation
-	public int page;
+	public String page;
 	
 	//所有条目数
 	@HttpAnnotation(HttpType = Constants.Http_RESPONSE)

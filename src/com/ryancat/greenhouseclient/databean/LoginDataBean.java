@@ -11,7 +11,7 @@ public class LoginDataBean extends BaseDataBean
 {
 	//客户端唯一ID
 	@HttpAnnotation
-	public int cid ;
+	public String cid ;
 	
 	//客户端当前合法token
 	@HttpAnnotation(HttpType = Constants.Http_RESPONSE)

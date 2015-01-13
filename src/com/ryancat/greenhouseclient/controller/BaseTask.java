@@ -1,5 +1,7 @@
 package com.ryancat.greenhouseclient.controller;
 
+import com.ryancat.greenhouseclient.network.HttpManager;
+
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -15,11 +17,12 @@ abstract class BaseTask implements Runnable
 {
 	protected Handler mTaskHandler;
 	protected Context context;
+	protected HttpManager httpManager;
 	public BaseTask (Handler handler,Context _context)
 	{
 		mTaskHandler = handler;
 		context = _context;
-		Boolean b;
+		httpManager = HttpManager.getInstance();
 	}
 	
 	/**
@@ -29,6 +32,10 @@ abstract class BaseTask implements Runnable
 	 * @param arg1
 	 * @param arg2
 	 */
+	public void sendResultMessage(int what,Object obj)
+	{
+		sendResultMessage(what,obj,0,0);
+	}
 	public void sendResultMessage(int what, Object obj,int arg1 ,int arg2)
 	{
 		if(mTaskHandler!=null)

@@ -1,5 +1,10 @@
 package com.ryancat.greenhouseclient.annotation;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 import com.ryancat.greenhouseclient.util.Constants;
 
 /**
@@ -7,6 +12,8 @@ import com.ryancat.greenhouseclient.util.Constants;
  * @author RyanHu
  *
  */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
 public @interface HttpAnnotation {
 	String HttpType() default Constants.HTTP_REQUEST ;
 }

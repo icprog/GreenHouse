@@ -1,13 +1,20 @@
 package com.ryancat.greenhouseclient;
 
 import com.ryancat.greenhouseclient.controller.ClientController;
+import com.ryancat.greenhouseclient.util.L;
 
 import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.IBinder;
+import android.telephony.TelephonyManager;
 
 /**
  * 继承了Application类，为整个应用唯一的application类。
@@ -24,6 +31,8 @@ public class GreenHouseApplication extends Application
 	public static String Ap;
 	public static String Ver;
 	public static String SysVer;
+	public static String cid;
+	public static String cToken;
 	/**控制器**/
 	private ClientController mClientController;
 	@Override
@@ -38,6 +47,7 @@ public class GreenHouseApplication extends Application
 	 */
 	private void init ()
 	{
+		L.isOpenLog(true);
 		mClientController = ClientController.getInstance(this);
 		initFiled();
 	}
@@ -55,7 +65,46 @@ public class GreenHouseApplication extends Application
 	 */
 	private void initFiled()
 	{
-		
+		IMEI = getIMEI();
+		Mac = getMac();
+		Ua = android.os.Build.MODEL;
+		SysVer=android.os.Build.VERSION.RELEASE;
+		Ver = getAppVersionName(this);
+		Ap ="wifi";
 	}
-	
+
+	private String getMac()
+	{
+
+		WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+
+		WifiInfo info = wifi.getConnectionInfo();
+
+		return info.getMacAddress();
+
+	}
+
+	private String getIMEI()
+	{
+		TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+		String imei = telephonyManager.getDeviceId();
+		// 需要在manifest中加入 <uses-permission
+		// android:name="android.permission.READ_PHONE_STATE"/>
+		return imei;
+
+	}
+	/**
+	 * 获取版本名称
+	 */
+	public  String getAppVersionName(Context context) {
+		PackageManager pm = context.getPackageManager();
+		try {
+			PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+			return pi.versionName;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+
 }

@@ -123,7 +123,7 @@ public class ScannerActivity extends BaseActivity implements Callback
 //			Toast.makeText(getApplicationContext(), "result is " + result, 1).show();
 		}
 		ScannerActivity.this.finish();
-		controller.userRegister(getTaskHandler());
+//		controller.userRegister(getTaskHandler());
 	}
 
 	private void initCamera(SurfaceHolder surfaceHolder)

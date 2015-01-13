@@ -55,10 +55,10 @@ public class LoginActivity extends BaseActivity
 	@Override
 	protected void progressLogic()
 	{
-		controller.userLogin(getTaskHandler());
+		//进入后首先拿客户端数据换取cid
+		controller.userRegister(getTaskHandler());
 	}
 
-	//登录
 	@Override
 	protected void  setTaskHandler()
 	{
@@ -70,14 +70,39 @@ public class LoginActivity extends BaseActivity
 				super.handleMessage(msg);
 				switch (msg.what)
 				{
-				case TaskConstants.USER_LOGIN_TASK:
+				case TaskConstants.USER_REGISTER_TASK:
+					//注册回调
 					if(msg.arg1==TaskConstants.TASK_SUCCESS)
 					{
-						//任务执行成功，需要
+						//任务执行成功，需要进行下一步登录
+						controller.userLogin(getTaskHandler());
 					}
 					else if(msg.arg1 ==TaskConstants.TASK_FAILED)
 					{
-						//任务执行失败
+						//任务执行失败，报错
+					}
+					break;
+				case TaskConstants.USER_LOGIN_TASK:
+					//登录回调
+					if(msg.arg1==TaskConstants.TASK_SUCCESS)
+					{
+						//任务执行成功，需要进行下一步获取网关列表
+						controller.showGatewayList(getTaskHandler());
+					}
+					else if(msg.arg1 ==TaskConstants.TASK_FAILED)
+					{
+						//任务执行失败，报错
+					}
+					break;
+				case TaskConstants.SHOW_GATEWAY_TASK:
+					//获取网关列表回调
+					if(msg.arg1==TaskConstants.TASK_SUCCESS)
+					{
+						//获取网关列表成功
+					}
+					else if(msg.arg1 ==TaskConstants.TASK_FAILED)
+					{
+						//任务执行失败，报错
 					}
 					break;
 				default:

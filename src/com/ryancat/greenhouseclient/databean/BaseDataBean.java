@@ -1,5 +1,7 @@
 package com.ryancat.greenhouseclient.databean;
 
+import java.lang.reflect.Field;
+
 import com.ryancat.greenhouseclient.GreenHouseApplication;
 import com.ryancat.greenhouseclient.annotation.HttpAnnotation;
 import com.ryancat.greenhouseclient.util.Constants;
@@ -19,6 +21,7 @@ public class BaseDataBean
 		this.ua = GreenHouseApplication.Ua;
 		this.ver = GreenHouseApplication.Ver;
 		this.sysVer = GreenHouseApplication.SysVer;
+		this.ap = GreenHouseApplication.Ap;
 	}
 	
 	//设备的IMEI唯一标识符
@@ -42,5 +45,27 @@ public class BaseDataBean
 	//Http相应状态
 	@HttpAnnotation(HttpType = Constants.Http_RESPONSE)
 	public String status;
+	
+	@Override
+	public String toString()
+	{
+		Field[] fields = this.getClass().getFields();
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < fields.length; i++)
+		{
+			try
+			{
+				sb.append("**"+fields[i].getName()+"-->"+fields[i].get(this));
+			} catch (IllegalAccessException e)
+			{
+				e.printStackTrace();
+			} catch (IllegalArgumentException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return sb.toString();
+	}
 
 }

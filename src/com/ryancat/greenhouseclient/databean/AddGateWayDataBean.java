@@ -11,7 +11,7 @@ public class AddGateWayDataBean extends BaseDataBean
 {
 	//客户端唯一ID
 	@HttpAnnotation
-	public int cid ;
+	public String cid ;
 
 	//客户端的token
 	@HttpAnnotation
@@ -19,9 +19,9 @@ public class AddGateWayDataBean extends BaseDataBean
 	
 	//目标网关的id
 	@HttpAnnotation
-	public int gwid;
+	public String gwid;
 	
 	//操作，1添加0删除
 	@HttpAnnotation
-	public int action; 
+	public String action; 
 }

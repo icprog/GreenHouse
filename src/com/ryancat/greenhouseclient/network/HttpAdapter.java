@@ -34,7 +34,7 @@ import com.ryancat.greenhouseclient.util.Constants;
 import com.ryancat.greenhouseclient.util.L;
 
 
-import android.content.Context;
+//import android.content.Context;
 
 /**
  * 
@@ -59,7 +59,7 @@ public class HttpAdapter
 	 * 
 	 * @author wangyang 该工具类的构造方法,初始化了HttpClient
 	 */
-	public HttpAdapter(Context context)
+	public HttpAdapter()
 	{
 		super();
 		mHttparams = new BasicHttpParams();
