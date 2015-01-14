@@ -31,7 +31,7 @@ public class GreenHouseApplication extends Application
 	public static String Ap;
 	public static String Ver;
 	public static String SysVer;
-	public static String cid;
+	public static int cid;
 	public static String cToken;
 	/**控制器**/
 	private ClientController mClientController;

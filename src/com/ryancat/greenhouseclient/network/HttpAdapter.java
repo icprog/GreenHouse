@@ -302,7 +302,7 @@ public class HttpAdapter
 
 		for (Map.Entry<String, Object> entry : parameters.entrySet())
 		{
-			list.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+			list.add(new BasicNameValuePair(entry.getKey(), entry.getValue()+""));
 		}
 
 		post.setEntity(new UrlEncodedFormEntity(list, Constants.ENCODING));

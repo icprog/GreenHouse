@@ -7,7 +7,7 @@ import com.ryancat.greenhouseclient.annotation.HttpAnnotation;
  * @author RyanHu
  *
  */
-public class AddGateWayDataBean extends BaseDataBean
+public final class AddGateWayDataBean extends BaseDataBean
 {
 	//客户端唯一ID
 	@HttpAnnotation
@@ -24,4 +24,5 @@ public class AddGateWayDataBean extends BaseDataBean
 	//操作，1添加0删除
 	@HttpAnnotation
 	public String action; 
+	
 }

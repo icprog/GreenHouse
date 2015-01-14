@@ -9,7 +9,7 @@ import com.ryancat.greenhouseclient.util.L;
 import android.content.Context;
 import android.os.Handler;
 
-public class UserRegisterTask extends BaseTask
+final class UserRegisterTask extends BaseTask
 {
 	private static final int TASK_TAG = TaskConstants.USER_REGISTER_TASK;
 

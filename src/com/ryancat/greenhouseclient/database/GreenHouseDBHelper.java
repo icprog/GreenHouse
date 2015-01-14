@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author RyanHu
  *
  */
-public class GreenHouseDBHelper extends SQLiteOpenHelper
+public final class GreenHouseDBHelper extends SQLiteOpenHelper
 {
 
 	public GreenHouseDBHelper(Context context, String name, CursorFactory factory, int version)

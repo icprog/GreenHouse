@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.ryancat.greenhouseclient.R;
+import com.ryancat.greenhouseclient.controller.TaskConstants;
 import com.zxing.camera.CameraManager;
 import com.zxing.decoding.InactivityTimer;
 import com.zxing.decoding.ScannerActivityHandler;
@@ -122,9 +123,18 @@ public class ScannerActivity extends BaseActivity implements Callback
 			this.setResult(RESULT_OK, resultIntent);
 //			Toast.makeText(getApplicationContext(), "result is " + result, 1).show();
 		}
-		ScannerActivity.this.finish();
-//		controller.userRegister(getTaskHandler());
+//		ScannerActivity.this.finish();
+		try
+		{
+			int gwid = Integer.parseInt(resultString);
+			controller.addGateway(getTaskHandler(),gwid);
+		}
+		catch(Exception e){
+			//转换错误
+			e.printStackTrace();
+		}
 	}
+	
 
 	private void initCamera(SurfaceHolder surfaceHolder)
 	{
@@ -239,7 +249,6 @@ public class ScannerActivity extends BaseActivity implements Callback
 	@Override
 	public void onClick(View v)
 	{
-		// TODO Auto-generated method stub
 
 	}
 
@@ -256,7 +265,7 @@ public class ScannerActivity extends BaseActivity implements Callback
 	@Override
 	protected void progressLogic()
 	{
-		controller.userLogin(getTaskHandler());
+		
 	}
 	
 	@Override
@@ -266,8 +275,22 @@ public class ScannerActivity extends BaseActivity implements Callback
 		{
 			public void handleMessage(Message msg)
 			{
-				super.handleMessage(msg);
-				Toast.makeText(mApp, "handler msg :"+msg.obj, 1).show();
+				switch (msg.what)
+				{
+				case TaskConstants.ADD_GATEWAY_TASK:
+					if(msg.arg1 ==TaskConstants.TASK_SUCCESS){
+						ScannerActivity.this.finish();
+						Toast.makeText(mApp, "添加网关成功", Toast.LENGTH_LONG).show();
+					}
+					else
+					{
+						Toast.makeText(mApp, "添加网关失败", Toast.LENGTH_LONG).show();
+
+					}
+					break;
+				default:
+					break;
+				}
 			}
 		};
 	}

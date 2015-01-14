@@ -8,15 +8,15 @@ import android.content.Context;
 import android.os.Handler;
 
 /**
- * 增加一个网关的task
+ * 删除一个网关的task
  * @author RyanHu
  *
  */
-final class AddGatewayTask extends BaseTask
+final class DelGatewayTask extends BaseTask
 {
-	private static final int TASK_TAG  = TaskConstants.ADD_GATEWAY_TASK;
+	private static final int TASK_TAG  = TaskConstants.DEL_GATEWAY_TASK;
 	private int gwid ;
-	public AddGatewayTask(Handler handler, Context _context , int _gwid)
+	public DelGatewayTask(Handler handler, Context _context , int _gwid)
 	{
 		super(handler, _context);
 		gwid = _gwid;
@@ -29,7 +29,7 @@ final class AddGatewayTask extends BaseTask
 		addGatewayBean.cid = GreenHouseApplication.cid;
 		addGatewayBean.cToken = GreenHouseApplication.cToken;
 		addGatewayBean.gwid = gwid;
-		addGatewayBean.action = Constants.ACTION_GATEWAY_ADD;
+		addGatewayBean.action = Constants.ACTION_GATEWAY_DEL;
 		addGatewayBean = (AddGatewayBean) httpManager.requestServer(Constants.AddGw_Url, addGatewayBean, true);
 		if(addGatewayBean.status.equals(Constants.Status_Success))
 		{

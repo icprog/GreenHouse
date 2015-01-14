@@ -7,11 +7,11 @@ import com.ryancat.greenhouseclient.util.Constants;
  * @author RyanHu
  *
  */
-public class LoginDataBean extends BaseDataBean
+public final class LoginDataBean extends BaseDataBean
 {
 	//客户端唯一ID
 	@HttpAnnotation
-	public String cid ;
+	public int cid ;
 	
 	//客户端当前合法token
 	@HttpAnnotation(HttpType = Constants.Http_RESPONSE)

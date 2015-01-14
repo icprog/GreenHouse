@@ -99,9 +99,13 @@ public class LoginActivity extends BaseActivity
 					//获取网关列表回调
 					if(msg.arg1==TaskConstants.TASK_SUCCESS)
 					{
-						//获取网关列表成功
-						GatewayListDataBean gldb = (GatewayListDataBean)msg.obj ;
-						Toast.makeText(mApp, gldb.toString(), Toast.LENGTH_LONG).show();
+						if(!controller.isGatewayListEmpty(msg.obj))
+						{
+							//网关列表是空的,跳转添加网关界面
+							Intent intent = new Intent(LoginActivity.this,ScannerActivity.class);
+							startActivity(intent);
+							Toast.makeText(mApp, "网关列表为空，请添加网关", Toast.LENGTH_LONG).show();
+						}
 					}
 					else if(msg.arg1 ==TaskConstants.TASK_FAILED)
 					{

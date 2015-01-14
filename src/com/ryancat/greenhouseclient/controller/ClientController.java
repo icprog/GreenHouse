@@ -3,7 +3,9 @@ package com.ryancat.greenhouseclient.controller;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.google.gson.Gson;
 import com.ryancat.greenhouseclient.databean.GatewayListDataBean;
+import com.ryancat.greenhouseclient.util.L;
 
 import android.app.Service;
 import android.content.Context;
@@ -58,9 +60,16 @@ public class ClientController
 	/**
 	 * 增加一个网关的外部API
 	 */
-	public void addGateway(Handler taskHandler)
+	public void addGateway(Handler taskHandler,int gwid)
 	{
-		mExecutorService.execute(new AddGatewayTask(taskHandler,mContext));
+		mExecutorService.execute(new AddGatewayTask(taskHandler,mContext,gwid));
+	}
+	/**
+	 * 删除一个网关的外部API
+	 */
+	public void delGateway(Handler taskHandler,int gwid)
+	{
+		mExecutorService.execute(new DelGatewayTask(taskHandler,mContext,gwid));
 	}
 
 	/**
@@ -77,10 +86,21 @@ public class ClientController
 	{
 		mExecutorService.execute(new StartMqttTask(taskHandler,mContext));
 	}
-	public void isGatewayListEmpty(Object gatewayList)
+	/**
+	 * 判断网关列表是否为空
+	 * @param gatewayList
+	 * @return
+	 */
+	public boolean isGatewayListEmpty(Object gatewayList)
 	{
 		GatewayListDataBean gwl_databean = (GatewayListDataBean)gatewayList;
-		
+		if(gwl_databean.allRow == 0)
+		{
+			L.e("网关列表为空！");
+			return false;
+		}
+		L.e("网关列表不为空！");
+		return true;
 	}
 	
 }

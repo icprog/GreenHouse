@@ -10,7 +10,7 @@ import android.os.Handler;
  * @author RyanHu
  *
  */
-public class StartMqttTask extends BaseTask
+final class StartMqttTask extends BaseTask
 {
 	public StartMqttTask(Handler handler, Context _context)
 	{
