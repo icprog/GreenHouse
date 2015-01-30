@@ -30,8 +30,8 @@ import com.google.zxing.MultiFormatReader;
 import com.google.zxing.ReaderException;
 import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
-import com.ryancat.greenhouseclient.R;
-import com.ryancat.greenhouseclient.view.ScannerActivity;
+import com.greenhouseclient.view.ScannerActivity;
+import com.greenhouseclient.R;
 import com.zxing.camera.CameraManager;
 import com.zxing.camera.PlanarYUVLuminanceSource;
 
