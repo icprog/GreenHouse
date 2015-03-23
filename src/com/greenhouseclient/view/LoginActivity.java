@@ -110,22 +110,36 @@ public class LoginActivity extends BaseActivity
 							gateway_add_btn.setVisibility(View.VISIBLE);
 							mProgressDialog.setMessage("网关列表为空，请添加网关！");
 							Toast.makeText(mApp, "网关列表为空，请添加网关", Toast.LENGTH_LONG).show();
+						mProgressDialog.dismiss();
 						} else
 						{
-							// controller.delGateway(getTaskHandler(), 1);
-							// controller.delGateway(getTaskHandler(), 1);
-							// controller.delGateway(getTaskHandler(), 1);
-							// controller.delGateway(getTaskHandler(), 1);
 							gateway_add_btn.setVisibility(View.INVISIBLE);
-							mProgressDialog.setMessage("网关列表不为空，欢迎使用！");
-							startActivityByName(ShowGreenHouseActivity.class);
-							LoginActivity.this.finish();
+							mProgressDialog.setMessage("正在获取一周数据！");
+//							startActivityByName(ShowGatewayActivity.class);
+//							LoginActivity.this.finish();
+							controller.getDataByDate(getTaskHandler());
 						}
-						mProgressDialog.dismiss();
 					} else if (msg.arg1 == TaskConstants.TASK_FAILED)
 					{
 						// 任务执行失败，报错
 					}
+					
+					break;
+				case TaskConstants.GET_DATA_BY_DATE_TASK:
+					mProgressDialog.setMessage("正在获取当天数据！");
+					controller.getDataByHour(getTaskHandler());
+					//获取周数据
+					break;
+				case TaskConstants.GET_DATA_BY_HOUR_TASK:
+					mProgressDialog.setMessage("正在获取实时数据！");
+					controller.getDataByMinute(getTaskHandler());
+
+					//获取日数据
+					break;
+				case TaskConstants.GET_DATA_BY_MINUTE_TASK:
+					startActivityByName(ShowGatewayActivity.class);
+					LoginActivity.this.finish();
+					mProgressDialog.dismiss();
 					break;
 				default:
 					break;

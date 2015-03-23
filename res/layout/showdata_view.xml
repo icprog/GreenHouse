@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/showdata_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/showdataview_gwid_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TestGW" />
+
+            <Spinner
+                android:id="@+id/select_showdata_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Switch
+                android:id="@+id/edit_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_switch"
+                android:textOff="@string/close"
+                android:textOn="@string/open" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temp" />
+
+                <TextView
+                    android:id="@+id/temp_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temp" />
+            </LinearLayout>
+
+            <cn.limc.androidcharts.view.MAChart
+                android:id="@+id/temp_machart"
+                android:layout_width="fill_parent"
+                android:layout_height="120dip" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humi" />
+
+                <TextView
+                    android:id="@+id/humi_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humi" />
+            </LinearLayout>
+
+            <cn.limc.androidcharts.view.MAChart
+                android:id="@+id/humi_machart"
+                android:layout_width="fill_parent"
+                android:layout_height="120dip" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beam" />
+
+                <TextView
+                    android:id="@+id/beam_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beam" />
+            </LinearLayout>
+
+            <cn.limc.androidcharts.view.MAChart
+                android:id="@+id/beam_machart"
+                android:layout_width="fill_parent"
+                android:layout_height="120dip" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

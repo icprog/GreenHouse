@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/gateway_page_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="网关id："
+        android:textSize="@dimen/application_text_textsize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="600"
+        android:background="#000000"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/rl_ll_hor1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/rl_ll_ll_ver1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_temp1"
+                        android:text="温度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_temp1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/rl_ll_ll_tv_temp1_sign"
+                        android:text="0.00 "
+                        android:textSize="@dimen/application_title_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_temp1_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_temp1"
+                        android:layout_alignParentRight="true"
+                        android:text="  ℃"
+                        android:textSize="@dimen/application_text_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_humi1"
+                        android:text="湿度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_humi1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/rl_ll_ll_tv_humi1_sign"
+                        android:text="0.00"
+                        android:textSize="@dimen/application_title_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_humi1_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_humi1"
+                        android:layout_alignParentRight="true"
+                        android:text="   %"
+                        android:textSize="@dimen/application_text_textsize" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_beam1"
+                        android:text="光照:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_beam1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/rl_ll_ll_tv_beam1_sign"
+                        android:text="0.00"
+                        android:textSize="@dimen/application_title_textsize" />
+
+                    <TextView
+                        android:id="@+id/rl_ll_ll_tv_beam1_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/rl_ll_ll_tv_beam1"
+                        android:layout_alignParentRight="true"
+                        android:text=" Lux"
+                        android:textSize="@dimen/application_small_text_textsize" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_ll_ll_ver2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="温度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="湿度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="照度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rl_ll_hor2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/rl_ll_ll_ver3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="温度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="湿度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="照度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rl_ll_ll_ver4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="温度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="湿度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="照度:"
+                        android:textSize="@dimen/application_text_textsize" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="@dimen/application_title_textsize" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

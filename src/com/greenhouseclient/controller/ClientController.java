@@ -25,7 +25,7 @@ public class ClientController
 
 	private static ClientController sInstance;// 单例
 	private ExecutorService mExecutorService;//线程池
-	private final static int THREAD_NUM = 1;//线程数
+	private final static int THREAD_NUM = 2;//线程数
 	private Context mContext;
 
 	private ClientController()
@@ -89,6 +89,31 @@ public class ClientController
 		executeTask(new StartMqttTask(taskHandler,mContext));
 	}
 	/**
+	 * 获取一小时内的数据
+	 * @param taskHandler
+	 */
+	public void getDataByMinute(Handler taskHandler)
+	{
+		executeTask(new GetDataByMinuteTask(taskHandler, mContext));
+	}
+	/**
+	 * 获取一天内的数据
+	 * @param taskHandler
+	 */
+	public void getDataByHour(Handler taskHandler)
+	{
+		executeTask(new GetDataByHourTask(taskHandler, mContext));
+	}
+	
+	/**
+	 * 获取一周内的数据
+	 * @param taskHandler
+	 */
+	public void getDataByDate(Handler taskHandler)
+	{
+		executeTask(new GetDataByDateTask(taskHandler, mContext));
+	}
+	/**
 	 * 判断网关列表是否为空
 	 * @param gatewayList
 	 * @return
@@ -104,6 +129,7 @@ public class ClientController
 		L.e("网关列表不为空！");
 		return true;
 	}
+
 	/**
 	 * 所有任务的执行入口
 	 * @param task

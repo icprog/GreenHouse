@@ -2,10 +2,12 @@ package com.greenhouseclient.view;
 
 import com.greenhouseclient.GreenHouseApplication;
 import com.greenhouseclient.controller.ClientController;
+import com.greenhouseclient.util.GreenHouseUtils;
 import com.greenhouseclient.util.L;
 import com.greenhouseclient.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +42,7 @@ public abstract class BaseActivity extends Activity implements OnClickListener
 	protected Handler taskHandler;
 	protected ImageButton mMenuImageButton;// 右上方的imageButton
 	protected TextView mNetworkStatusTV;
+	protected TextView mTitleTv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -63,6 +66,23 @@ public abstract class BaseActivity extends Activity implements OnClickListener
 		{
 			showView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 		}
+		
+		mTitleTv = (TextView) findViewById(R.id.title_tv);
+		mTitleTv.setOnClickListener(new OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				AlertDialog dialog =new AlertDialog.Builder(BaseActivity.this).create();
+				StringBuffer sb = new StringBuffer();
+				sb.append("客户端ID：" + GreenHouseApplication.cid + "\n");
+				sb.append("软件版本:" + GreenHouseUtils.getAppVersionName(BaseActivity.this) + "\n");
+				dialog.setMessage(sb);
+				dialog.show();
+				
+			}
+		});
 		containerView.addView(showView);
 
 	}
